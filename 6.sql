@@ -1,4 +1,4 @@
-select avg(dev.salary)
+select pr.project_name as cheaper_project,avg(dev.salary)
 	from developers as dev
     join link_developers_projects as ldp
 	on ldp.dev_id=dev.id
@@ -7,4 +7,4 @@ select avg(dev.salary)
     where pr.project_name=
 	(select project_name
 		from projects
-		where cost = (select min(cost) from projects))
+		where cost = (select min(cost) from projects));
